@@ -29,7 +29,8 @@ const prompt = () => {
       name:'choice',
       message:'请选择要开发的项目',
       choices:[
-        'duan-admin-pc'
+        'duan-admin-pc',
+        'duan-mobile'
       ]
     },
     {
