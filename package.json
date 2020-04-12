@@ -1,10 +1,10 @@
 {
   "name": "ckg-cli",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "快速构建后台管理项目的cli工具",
   "main": "index.js",
   "bin": {
-    "ckcli": "./bin/cli.js"
+    "ckg-li": "./bin/cli.js"
   },
   "author": "duan",
   "license": "ISC",
