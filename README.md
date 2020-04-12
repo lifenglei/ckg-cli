@@ -15,5 +15,4 @@
 脚手架|指令|项目名
 --|:--:|--:
 ckg-cli|create|xxx
-####
-![blockchain](https://static.soyoung.com/sy-pre/WX20200412-232803@2x-1586704201905.png)
+
