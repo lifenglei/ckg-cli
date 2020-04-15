@@ -10,7 +10,7 @@
     ckg-cli list
 ```
 #### see github
-[成人社区](https://github.com/lifenglei/ckg-cli)
+[同性交友社区](https://github.com/lifenglei/ckg-cli)
 #### 指令说明
 脚手架|指令|项目名
 --|:--:|--:
