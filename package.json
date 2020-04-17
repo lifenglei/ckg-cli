@@ -1,6 +1,6 @@
 {
   "name": "ckg-cli",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "快速构建所需开发项目的cli工具",
   "main": "index.js",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "author": "duan",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^5.0.0",
     "download-git-repo": "^2.0.0",
