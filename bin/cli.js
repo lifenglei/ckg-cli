@@ -30,8 +30,14 @@ const prompt = () => {
       message:'请选择要开发的项目',
       choices:[
         'duan-admin-pc',
+        'pc-template',
         'duan-mobile'
       ]
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: '请输入项目描述'
     },
     {
       type: 'confirm',
@@ -45,11 +51,11 @@ program
   .version(require('../package.json').version, '-v, --version');
 
 program
-  .command('create <ProjectName>')
+  .command('init <ProjectName>')
   .description('创建一个新项目')
   .action((projectName) => {
     prompt().then(async (results) => {
-      const { author, repository,choice, isOk } = results;
+      const { author, repository,choice, isOk,description } = results;
       console.log(choice)
       if (!isOk) {
         return;
@@ -57,10 +63,11 @@ program
       if(!fs.existsSync(projectName)){
         // 1. clone git项目
         const { clone } = require('../lib/download');
-        console.log('🚀创建项目: ' + projectName);
+        console.log('🚀正在为你创建项目: ' + projectName);
 
         await clone(`github.com:lifenglei/${choice}`, projectName);
-        console.log(symbols.success,chalk.green(`项目${projectName}创建成功`));
+        console.log(symbols.success, chalk.green(`项目${projectName}创建成功`));
+        console.log(chalk.red('cd ' + projectName + '\nnpm install\nnpm run dev'))
         // 2. 同步package.json的配置.
         const packageJson = path.join(path.resolve(projectName), 'package.json');
         const repositoryObj = repository ? {
@@ -70,15 +77,25 @@ program
         updateFile(packageJson, {
           name: projectName,
           author,
+          description,
           repository: repositoryObj
         });
-        // 3. 自动安装依赖
-        console.log(chalk.red('安装依赖🔥...'))
-        //4. 将node工作目录更改成构建的项目根目录下
-        const projectPath = path.resolve(projectName);
-        process.chdir(projectPath);
-        // 执行安装命令
-        autoInstall();
+      } else {
+        console.log(chalk.red(`项目文件已经存在`));
+        inquirer.prompt([
+          {
+            type: 'confirm',
+            name: 'isOk',
+            message: '是否删除该文件夹?'
+          }
+        ]).then((ans) => {
+          if (ans.isOk) {
+            delDir(path.resolve(projectName))
+            console.log(chalk.green(`删除成功`));
+          } else {
+            
+            }
+        })
       }
     });
   })
