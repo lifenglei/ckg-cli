@@ -31,7 +31,11 @@ const prompt = () => {
       choices:[
         'duan-admin-pc',
         'pc-template',
-        'duan-mobile'
+        'duan-mobile',
+        'duan-react',
+        'rollup-react',
+        'webpack-react',
+        'parcel-react',
       ]
     },
     {
@@ -67,7 +71,7 @@ program
 
         await clone(`github.com:lifenglei/${choice}`, projectName);
         console.log(symbols.success, chalk.green(`项目${projectName}创建成功`));
-        console.log(chalk.red('cd ' + projectName + '\nnpm install\nnpm run dev'))
+        console.log(chalk.red('cd ' + projectName + '\nnpm install\nnpm run dev或者npm run start'))
         // 2. 同步package.json的配置.
         const packageJson = path.join(path.resolve(projectName), 'package.json');
         const repositoryObj = repository ? {

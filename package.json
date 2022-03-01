@@ -1,6 +1,6 @@
 {
   "name": "ckg-cli",
-  "version": "1.2.1",
+  "version": "2.1.2",
   "description": "快速构建所需开发项目的cli工具",
   "main": "index.js",
   "bin": {
